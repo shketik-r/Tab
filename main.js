@@ -17,7 +17,7 @@ class Tabs {
 
     if (this.tab.length > 0) {
 
-      let newDataName = this._convertString();
+      let newDataName = this.#convertString();
 
       this.tab.forEach(t => {
         t.addEventListener('click', (ev) => {
@@ -27,16 +27,12 @@ class Tabs {
           }
 
           const currentContent = document.querySelector(`[data-${this.CONTENT_DATA_NAME}="${ev.target.dataset[newDataName]}"]`);
-
           const currentTabActive = document.querySelector("." + this.TAB_ACTIVE);
           const currentContentActive = document.querySelector("." + this.CONTENT_ACTIVE);
 
           currentTabActive ? currentTabActive.classList.remove(this.TAB_ACTIVE) : "";
           currentContentActive ? currentContentActive.classList.remove(this.CONTENT_ACTIVE) : "";
-
-          if (currentContent) {
-            currentContent.classList.add(this.CONTENT_ACTIVE);
-          }
+          currentContent ? currentContent.classList.add(this.CONTENT_ACTIVE) : '';
 
           t.classList.add(this.TAB_ACTIVE);
 
@@ -45,7 +41,7 @@ class Tabs {
     }
   }
 
-  _convertString() {
+  #convertString() {
     let str = this.TAB_DATA_NAME;
     let i = -1;
     while ((i = str.indexOf('-', i + 1)) != -1) {

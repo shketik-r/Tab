@@ -17,7 +17,7 @@ class Tabs {
 
     if (this.tab.length > 0) {
 
-      let newDataName = this.#convertString();
+      let newDataName = this._convertString();
 
       this.tab.forEach(t => {
         t.addEventListener('click', (ev) => {
@@ -45,7 +45,7 @@ class Tabs {
     }
   }
 
-  #convertString() {
+  _convertString() {
     let str = this.TAB_DATA_NAME;
     let i = -1;
     while ((i = str.indexOf('-', i + 1)) != -1) {

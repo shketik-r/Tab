@@ -1,1 +1,1 @@
-# Tab ["https://shketik-r.github.io/Tab/"]
+# [Tab page](https://shketik-r.github.io/Tab/)
